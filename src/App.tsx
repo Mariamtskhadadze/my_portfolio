@@ -1,14 +1,14 @@
 import React from "react";
-import { Box, Button, Heading, Text } from "@chakra-ui/react"; // Chakra UI components
+import { Box, Button, Heading, Text } from "@chakra-ui/react";
 
 const App: React.FC = () => {
   return (
     <Box p={5}>
       <Heading as="h1" size="xl" mb={4}>
-        Welcome to My Chakra UI App
+        Welcome to My Portfolio
       </Heading>
       <Text fontSize="lg" mb={4}>
-        This is an example of an app using Chakra UI with a custom theme.
+        This is an app about my profession.
       </Text>
       <Button colorScheme="teal">Click Me</Button>
     </Box>
