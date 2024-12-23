@@ -1,73 +1,115 @@
-// import { Box, SimpleGrid, Text, Link, Image } from "@chakra-ui/react";
+import React, { useState } from "react";
+import {
+  Heading,
+  Text,
+  SimpleGrid,
+  Image,
+  VStack,
+  Container,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalBody,
+} from "@chakra-ui/react";
 
-// const Projects = () => {
-//   const projects = [
-//     {
-//       title: "Project 1",
-//       description: "Description 1",
-//       image: "/path/to/image1.jpg",
-//       link: "#",
-//     },
-//     {
-//       title: "Project 2",
-//       description: "Description 2",
-//       image: "/path/to/image2.jpg",
-//       link: "#",
-//     },
-//   ];
+// Import images
+import Screenshot1 from "../assets/images/Screenshot_1.png";
+import Screenshot2 from "../assets/images/Screenshot_2.png";
+import Screenshot3 from "../assets/images/Screenshot_3.png";
+import Screenshot4 from "../assets/images/Screenshot_4.png";
 
-//   return (
-//     <Box id="projects" py={10} px={5}>
-//       <Text fontSize="2xl" mb={5} textAlign="center">
-//         Projects
-//       </Text>
-//       <SimpleGrid columns={{ base: 1, md: 2 }} padding={5}>
-//         {projects.map((project, index) => (
-//           <Box
-//             key={index}
-//             borderWidth="1px"
-//             borderRadius="lg"
-//             overflow="hidden"
-//           >
-//             <Image src={project.image} alt={project.title} />
-//             <Box p={5}>
-//               <Text fontWeight="bold">{project.title}</Text>
-//               <Text>{project.description}</Text>
-//               <Link href={project.link} color="teal.500" isExternal>
-//                 View Project
-//               </Link>
-//             </Box>
-//           </Box>
-//         ))}
-//       </SimpleGrid>
-//     </Box>
-//   );
-// };
+const Project: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false); // State to control modal visibility
+  const [selectedImage, setSelectedImage] = useState<string>(""); // State to track which image is selected
 
-// export default Projects;
+  // Function to open the modal and set the selected image
+  const openModal = (imageSrc: string) => {
+    setSelectedImage(imageSrc);
+    setIsOpen(true);
+  };
 
-import { Box, Heading, Text, Stack, Link } from "@chakra-ui/react";
+  // Function to close the modal
+  const closeModal = () => {
+    setIsOpen(false);
+    setSelectedImage(""); // Reset the selected image
+  };
 
-export default function Projects() {
   return (
-    <Box p={6}>
-      <Heading>Projects</Heading>
-      <Stack mt={4} spacing={4}>
-        <Box>
-          <Heading size="md">Project 1</Heading>
-          <Text>A brief description of your project.</Text>
-          <Link href="#" color="teal.500" isExternal>
-            View Project
-          </Link>
-        </Box>
-        <Box>
-          <Heading size="md">Project 2</Heading>
-          <Text>A brief description of your project.</Text>
-          <Link href="#" color="teal.500" isExternal>
-            View Project
-          </Link>
-        </Box>
-      </Stack>
-    </Box>
+    <Container maxW="container.md" p={5} centerContent>
+      {/* Heading Section */}
+      <VStack align="center" spacing={4}>
+        <Heading as="h1" size="xl" textAlign="center">
+          Project about construction
+        </Heading>
+        <Text fontSize="lg" textAlign="center">
+          This is a brief description of the project, I used HTML and CSS to
+          build it.
+        </Text>
+      </VStack>
+
+      {/* Screenshot Section */}
+      <SimpleGrid
+        columns={{ base: 1, md: 2, lg: 4 }}
+        spacing={4}
+        mt={8}
+        justifyItems="center"
+      >
+        <Image
+          src={Screenshot1}
+          alt="Screenshot 1"
+          borderRadius="md"
+          boxSize="300px"
+          objectFit="cover"
+          cursor="pointer"
+          onClick={() => openModal(Screenshot1)} // Open modal with this image
+        />
+        <Image
+          src={Screenshot2}
+          alt="Screenshot 2"
+          borderRadius="md"
+          boxSize="300px"
+          objectFit="cover"
+          cursor="pointer"
+          onClick={() => openModal(Screenshot2)} // Open modal with this image
+        />
+        <Image
+          src={Screenshot3}
+          alt="Screenshot 3"
+          borderRadius="md"
+          boxSize="300px"
+          objectFit="cover"
+          cursor="pointer"
+          onClick={() => openModal(Screenshot3)} // Open modal with this image
+        />
+        <Image
+          src={Screenshot4}
+          alt="Screenshot 4"
+          borderRadius="md"
+          boxSize="300px"
+          objectFit="cover"
+          cursor="pointer"
+          onClick={() => openModal(Screenshot4)} // Open modal with this image
+        />
+      </SimpleGrid>
+
+      {/* Modal to display selected image */}
+      <Modal isOpen={isOpen} onClose={closeModal}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody display="flex" justifyContent="center" alignItems="center">
+            <Image
+              src={selectedImage}
+              alt="Selected Screenshot"
+              boxSize="full"
+              objectFit="contain"
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </Container>
   );
-}
+};
+
+export default Project;
