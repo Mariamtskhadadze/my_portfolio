@@ -53,7 +53,7 @@ import {
   Box,
   Heading,
   Text,
-  Link,
+  // Link,
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -82,19 +82,16 @@ function AboutMe() {
           About Me
         </Heading>
         <Text>
-          Hi, I’m Mariam Tskhadadze, a passionate front-end developer
-          specializing in crafting intuitive user interfaces and responsive web
-          applications. I love turning ideas into beautiful, functional, and
-          accessible digital experiences.
+          Hello, I am Mariam Tskhadadze, a junior front-end developer. I have
+          not yet received work experience, but I work on my own, do projects,
+          watch foreign language video courses, and received relevant knowledge
+          in college. I learned about this profession 3 years ago and was very
+          interested, so I decided to study it. I love my profession and my goal
+          is to become a full-stack developer.
         </Text>
-        <Text>
-          With expertise in modern JavaScript frameworks like React, extensive
-          experience with CSS-in-JS libraries, and a knack for design systems, I
-          aim to create seamless and engaging user experiences.
-        </Text>
-        <Link color={useColorModeValue("teal.500", "teal.300")} href="#">
+        {/* <Link color={useColorModeValue("teal.500", "teal.300")} href="#">
           Read More
-        </Link>
+        </Link> */}
       </VStack>
     </Box>
   );
