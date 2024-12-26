@@ -54,7 +54,7 @@ const Projects: React.FC = () => {
       {/* First Project */}
       <VStack align="center" spacing={6}>
         <Heading as="h1" size="2xl" textAlign="center" color="teal.500">
-          Project about construction
+          Construction Page
         </Heading>
         <Text fontSize="lg" textAlign="center" maxW="lg" color="gray.600">
           This is a brief description of the project, where I used HTML and CSS
@@ -139,7 +139,7 @@ const Projects: React.FC = () => {
       {/* Second Project */}
       <VStack align="center" spacing={6}>
         <Heading as="h1" size="2xl" textAlign="center" color="teal.500">
-          Project Imitation Games
+          Games Page
         </Heading>
         <Text fontSize="lg" textAlign="center" maxW="lg" color="gray.600">
           This is my second project, using React with TypeScript and Chakra UI.
@@ -239,7 +239,7 @@ const Projects: React.FC = () => {
       {/* Third Project */}
       <VStack align="center" spacing={6} mt={12}>
         <Heading as="h1" size="2xl" textAlign="center" color="teal.500">
-          Project About Shop_Api
+          Store Page
         </Heading>
         <Text fontSize="lg" textAlign="center" maxW="lg" color="gray.600">
           This is a description of the third project, with beautiful visuals and
