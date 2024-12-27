@@ -8,11 +8,12 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Blog {
   id: number;
-  title: string;
-  description: string;
+  titleKey: string; // Use translation keys for titles
+  descriptionKey: string; // Add translation keys for descriptions
   date: string;
   link: string;
 }
@@ -20,31 +21,29 @@ interface Blog {
 const blogs: Blog[] = [
   {
     id: 1,
-    title: "How to Build a Responsive Website",
-    description:
-      "Learn the fundamentals of responsive web design and how to create layouts that adapt beautifully to different screen sizes. Responsive web design ensures that your content is accessible and visually appealing, whether viewed on a mobile device, tablet, or desktop.",
+    titleKey: "blog.responsiveWebDesignTitle", // Use translation key for title
+    descriptionKey: "blog.responsiveWebDesignDescription", // Add translation key for description
     date: "December 20, 2024",
     link: "/blog/responsive-web-design",
   },
   {
     id: 2,
-    title: "JavaScript ES6 Features You Should Know",
-    description:
-      "Master the most essential features of JavaScript ES6. From arrow functions to template literals and destructuring, ES6 introduces powerful tools to make your code more concise, efficient, and readable.",
+    titleKey: "blog.javascriptES6FeaturesTitle", // Use translation key for title
+    descriptionKey: "blog.javascriptES6FeaturesDescription", // Add translation key for description
     date: "December 15, 2024",
     link: "/blog/javascript-es6-features",
   },
   {
     id: 3,
-    title: "CSS Grid vs Flexbox: When to Use Which?",
-    description:
-      "Understand the differences between CSS Grid and Flexbox. Learn when to use each layout system to create responsive and flexible designs, and determine which one best suits the specific needs of your project.",
+    titleKey: "blog.cssGridVsFlexboxTitle", // Use translation key for title
+    descriptionKey: "blog.cssGridVsFlexboxDescription", // Add translation key for description
     date: "December 10, 2024",
     link: "/blog/css-grid-vs-flexbox",
   },
 ];
 
 const BlogsPage = () => {
+  const { t } = useTranslation();
   const bgColor = useColorModeValue("gray.100", "gray.800");
   const textColor = useColorModeValue("gray.600", "gray.300");
 
@@ -63,7 +62,7 @@ const BlogsPage = () => {
         textAlign="center"
         color={useColorModeValue("teal.500", "teal.200")}
       >
-        Blogs
+        {t("blogsPage.title")}
       </Heading>
       <VStack spacing={8}>
         {blogs.map((blog) => (
@@ -81,21 +80,24 @@ const BlogsPage = () => {
           >
             <Box>
               <Heading as="h2" size="lg" mb={4}>
-                {blog.title}
+                {t(blog.titleKey)} {/* Use the titleKey here */}
               </Heading>
               <Text fontSize="sm" color={textColor} mb={2}>
-                {blog.date}
+                {t("blog.date")}: {blog.date}
               </Text>
-              <Text mb={4}>{blog.description.slice(0, 100)}...</Text>
+              <Text mb={4}>{t(blog.descriptionKey).slice(0, 100)}...</Text>{" "}
+              {/* Use the descriptionKey here */}
               {expandedBlog === blog.id && (
-                <Text>{blog.description.slice(100)}</Text>
+                <Text>{t(blog.descriptionKey).slice(100)}</Text>
               )}
               <Button
                 onClick={() => toggleDescription(blog.id)}
                 colorScheme="teal"
                 mt={2}
               >
-                {expandedBlog === blog.id ? "Show Less" : "Read More"}
+                {expandedBlog === blog.id
+                  ? t("blogsPage.showLess")
+                  : t("blogsPage.readMore")}
               </Button>
             </Box>
           </Stack>

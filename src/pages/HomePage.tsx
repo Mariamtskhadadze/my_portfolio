@@ -7,9 +7,11 @@ import {
   VStack,
   useColorMode,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
   const { colorMode } = useColorMode();
+  const { t } = useTranslation();
 
   const bgColor = colorMode === "dark" ? "gray.900" : "gray.50";
   const textColor = colorMode === "dark" ? "white" : "black";
@@ -33,19 +35,14 @@ const HomePage = () => {
       {/* Main Content */}
       <Box>
         <Heading as="h1" size="3xl" mb={6} color={headingColor}>
-          Welcome to My Portfolio
+          {t("homepage.welcome")}
         </Heading>
         <Text
           fontSize="2xl"
           color={colorMode === "dark" ? "gray.300" : "gray.700"}
           mb={12}
         >
-          Hi, I'm{" "}
-          <Text as="span" fontWeight="bold">
-            Mariam Tskhadadze
-          </Text>
-          , a passionate front-end developer. Explore my projects and learn more
-          about me!
+          {t("homepage.intro", { name: "Mariam Tskhadadze" })}
         </Text>
         <HStack justify="center" spacing={4}>
           <Button
@@ -54,7 +51,7 @@ const HomePage = () => {
             as="a"
             href="/projects"
           >
-            View My Projects
+            {t("homepage.viewProjects")}
           </Button>
           <Button
             size="lg"
@@ -62,7 +59,7 @@ const HomePage = () => {
             as="a"
             href="/cv"
           >
-            View My CV
+            {t("homepage.viewCV")}
           </Button>
         </HStack>
       </Box>
@@ -70,52 +67,27 @@ const HomePage = () => {
       {/* Skills Section */}
       <VStack mt={16} spacing={4}>
         <Text fontSize="xl" color={headingColor} fontWeight="bold">
-          My Tech Stack
+          {t("homepage.techStack")}
         </Text>
         <HStack spacing={6}>
-          <Text
-            fontSize="lg"
-            color={colorMode === "dark" ? "gray.300" : "gray.700"}
-          >
-            HTML
-          </Text>
-          <Text
-            fontSize="lg"
-            color={colorMode === "dark" ? "gray.300" : "gray.700"}
-          >
-            CSS
-          </Text>
-          <Text
-            fontSize="lg"
-            color={colorMode === "dark" ? "gray.300" : "gray.700"}
-          >
-            JavaScript
-          </Text>
-          <Text
-            fontSize="lg"
-            color={colorMode === "dark" ? "gray.300" : "gray.700"}
-          >
-            React
-          </Text>
-          <Text
-            fontSize="lg"
-            color={colorMode === "dark" ? "gray.300" : "gray.700"}
-          >
-            Chakra UI
-          </Text>
-          <Text
-            fontSize="lg"
-            color={colorMode === "dark" ? "gray.300" : "gray.700"}
-          >
-            Git
-          </Text>
+          {["HTML", "CSS", "JavaScript", "React", "Chakra UI", "Git"].map(
+            (tech) => (
+              <Text
+                key={tech}
+                fontSize="lg"
+                color={colorMode === "dark" ? "gray.300" : "gray.700"}
+              >
+                {t(`homepage.tech.${tech.toLowerCase()}`)}
+              </Text>
+            )
+          )}
         </HStack>
       </VStack>
 
       {/* New Tagline */}
       <Box mt={16}>
         <Text fontSize="lg" color={headingColor} fontWeight="bold">
-          "Transforming ideas into reality, one line of code at a time."
+          {t("homepage.tagline")}
         </Text>
       </Box>
 
@@ -126,7 +98,8 @@ const HomePage = () => {
         mt="auto"
         mb={4}
       >
-        © {new Date().getFullYear()} Mariam Tskhadadze. All Rights Reserved.
+        © {new Date().getFullYear()} {t("homepage.name")}.{" "}
+        {t("homepage.rights")}
       </Text>
     </Box>
   );

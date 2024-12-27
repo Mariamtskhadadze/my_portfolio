@@ -17,14 +17,14 @@ import {
   Card,
   CardBody,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
-// Import images for the first project
+// Import images for each project
 import Screenshot1 from "../assets/images/first_project/Screenshot_1.png";
 import Screenshot2 from "../assets/images/first_project/Screenshot_2.png";
 import Screenshot3 from "../assets/images/first_project/Screenshot_3.png";
 import Screenshot4 from "../assets/images/first_project/Screenshot_4.png";
 
-// Import image for the second project
 import ProjectScreenshot1 from "../assets/images/second_project/Second_Project_1.jpg";
 import ProjectScreenshot2 from "../assets/images/second_project/Second_Project_2.jpg";
 import ProjectScreenshot3 from "../assets/images/second_project/Second_Project_3.jpg";
@@ -34,8 +34,9 @@ import ThirdProjectScreenshot2 from "../assets/images/third_project/Third_Projec
 import ThirdProjectScreenshot3 from "../assets/images/third_project/Third_Project_3.jpg";
 
 const Projects: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to control modal visibility
-  const [selectedImage, setSelectedImage] = useState<string>(""); // State to track which image is selected
+  const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string>("");
 
   // Function to open the modal and set the selected image
   const openModal = (imageSrc: string) => {
@@ -46,7 +47,7 @@ const Projects: React.FC = () => {
   // Function to close the modal
   const closeModal = () => {
     setIsOpen(false);
-    setSelectedImage(""); // Reset the selected image
+    setSelectedImage("");
   };
 
   return (
@@ -54,12 +55,10 @@ const Projects: React.FC = () => {
       {/* First Project */}
       <VStack align="center" spacing={6}>
         <Heading as="h1" size="2xl" textAlign="center" color="teal.500">
-          Construction Page
+          {t("aboutMe.projects.construction.title")}
         </Heading>
         <Text fontSize="lg" textAlign="center" maxW="lg" color="gray.600">
-          This is a brief description of the project, where I used HTML and CSS
-          to build it. It's a construction-themed project with various features
-          showcasing layout and design.
+          {t("aboutMe.projects.construction.description")}
         </Text>
       </VStack>
 
@@ -70,128 +69,62 @@ const Projects: React.FC = () => {
         mt={10}
         justifyItems="center"
       >
-        <Image
-          src={Screenshot1}
-          alt="Screenshot 1"
-          borderRadius="md"
-          boxSize="300px"
-          objectFit="cover"
-          cursor="pointer"
-          transition="transform 0.3s ease-in-out"
-          _hover={{ transform: "scale(1.05)" }}
-          onClick={() => openModal(Screenshot1)}
-        />
-        <Image
-          src={Screenshot2}
-          alt="Screenshot 2"
-          borderRadius="md"
-          boxSize="300px"
-          objectFit="cover"
-          cursor="pointer"
-          transition="transform 0.3s ease-in-out"
-          _hover={{ transform: "scale(1.05)" }}
-          onClick={() => openModal(Screenshot2)}
-        />
-        <Image
-          src={Screenshot3}
-          alt="Screenshot 3"
-          borderRadius="md"
-          boxSize="300px"
-          objectFit="cover"
-          cursor="pointer"
-          transition="transform 0.3s ease-in-out"
-          _hover={{ transform: "scale(1.05)" }}
-          onClick={() => openModal(Screenshot3)}
-        />
-        <Image
-          src={Screenshot4}
-          alt="Screenshot 4"
-          borderRadius="md"
-          boxSize="300px"
-          objectFit="cover"
-          cursor="pointer"
-          transition="transform 0.3s ease-in-out"
-          _hover={{ transform: "scale(1.05)" }}
-          onClick={() => openModal(Screenshot4)}
-        />
+        {[Screenshot1, Screenshot2, Screenshot3, Screenshot4].map(
+          (image, index) => (
+            <Image
+              key={index}
+              src={image}
+              alt={`First Project Screenshot ${index + 1}`}
+              borderRadius="md"
+              boxSize="300px"
+              objectFit="cover"
+              cursor="pointer"
+              transition="transform 0.3s ease-in-out"
+              _hover={{ transform: "scale(1.05)" }}
+              onClick={() => openModal(image)}
+            />
+          )
+        )}
       </SimpleGrid>
 
-      {/* Modal to display selected image */}
-      <Modal isOpen={isOpen} onClose={closeModal}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalCloseButton />
-          <ModalBody display="flex" justifyContent="center" alignItems="center">
-            <Image
-              src={selectedImage}
-              alt="Selected Screenshot"
-              boxSize="full"
-              objectFit="contain"
-              borderRadius="md"
-            />
-          </ModalBody>
-        </ModalContent>
-      </Modal>
-
-      {/* Divider between projects */}
       <Box h="10" />
 
       {/* Second Project */}
       <VStack align="center" spacing={6}>
         <Heading as="h1" size="2xl" textAlign="center" color="teal.500">
-          Games Page
+          {t("aboutMe.projects.games.title")}
         </Heading>
         <Text fontSize="lg" textAlign="center" maxW="lg" color="gray.600">
-          This is my second project, using React with TypeScript and Chakra UI.
-          It’s hosted on Vercel, and showcases interactive elements and smooth
-          animations.
+          {t("aboutMe.projects.games.description")}
         </Text>
       </VStack>
 
       {/* Second Project Screenshot Section */}
-      <Box mt={8} textAlign="center">
-        <SimpleGrid
-          columns={{ base: 1, md: 3 }} // 1 column on small screens, 3 on larger screens
-          spacing={6} // Adjust the space between images
-          justifyItems="center" // Center the images
-        >
-          <Image
-            src={ProjectScreenshot1}
-            alt="Second Project Screenshot"
-            borderRadius="md"
-            boxSize="300px"
-            objectFit="cover"
-            cursor="pointer"
-            transition="transform 0.3s ease-in-out"
-            _hover={{ transform: "scale(1.05)" }}
-            onClick={() => openModal(ProjectScreenshot1)}
-          />
-          <Image
-            src={ProjectScreenshot2}
-            alt="Second Project Screenshot"
-            borderRadius="md"
-            boxSize="300px"
-            objectFit="cover"
-            cursor="pointer"
-            transition="transform 0.3s ease-in-out"
-            _hover={{ transform: "scale(1.05)" }}
-            onClick={() => openModal(ProjectScreenshot2)}
-          />
-          <Image
-            src={ProjectScreenshot3}
-            alt="Second Project Screenshot"
-            borderRadius="md"
-            boxSize="300px"
-            objectFit="cover"
-            cursor="pointer"
-            transition="transform 0.3s ease-in-out"
-            _hover={{ transform: "scale(1.05)" }}
-            onClick={() => openModal(ProjectScreenshot3)}
-          />
-        </SimpleGrid>
-      </Box>
+      <SimpleGrid
+        columns={{ base: 1, md: 3 }}
+        spacing={6}
+        mt={10}
+        justifyItems="center"
+      >
+        {[ProjectScreenshot1, ProjectScreenshot2, ProjectScreenshot3].map(
+          (image, index) => (
+            <Image
+              key={index}
+              src={image}
+              alt={`Second Project Screenshot ${index + 1}`}
+              borderRadius="md"
+              boxSize="300px"
+              objectFit="cover"
+              cursor="pointer"
+              transition="transform 0.3s ease-in-out"
+              _hover={{ transform: "scale(1.05)" }}
+              onClick={() => openModal(image)}
+            />
+          )
+        )}
+      </SimpleGrid>
 
-      {/* Second Project Links Section with Frames */}
+      {/* Second Project Links Section */}
       <Flex mt={12} justifyContent="center" gap={8}>
         <Card
           variant="elevated"
@@ -209,11 +142,10 @@ const Projects: React.FC = () => {
               fontSize="xl"
               isExternal
             >
-              Live Demo
+              {t("aboutMe.projects.games.liveDemo")}
             </Link>
           </CardBody>
         </Card>
-
         <Card
           variant="elevated"
           boxShadow="lg"
@@ -230,20 +162,21 @@ const Projects: React.FC = () => {
               fontSize="xl"
               isExternal
             >
-              View Code
+              {t("aboutMe.projects.games.viewCode")}
             </Link>
           </CardBody>
         </Card>
       </Flex>
 
+      <Box h="10" />
+
       {/* Third Project */}
-      <VStack align="center" spacing={6} mt={12}>
+      <VStack align="center" spacing={6}>
         <Heading as="h1" size="2xl" textAlign="center" color="teal.500">
-          Store Page
+          {t("aboutMe.projects.store.title")}
         </Heading>
         <Text fontSize="lg" textAlign="center" maxW="lg" color="gray.600">
-          This is a description of the third project, with beautiful visuals and
-          animations.
+          {t("aboutMe.projects.store.description")}
         </Text>
       </VStack>
 
@@ -254,39 +187,24 @@ const Projects: React.FC = () => {
         mt={8}
         justifyItems="center"
       >
-        <Image
-          src={ThirdProjectScreenshot1}
-          alt="Third Project Screenshot 1"
-          borderRadius="md"
-          boxSize="300px"
-          objectFit="cover"
-          cursor="pointer"
-          transition="transform 0.3s ease-in-out"
-          _hover={{ transform: "scale(1.05)" }}
-          onClick={() => openModal(ThirdProjectScreenshot1)}
-        />
-        <Image
-          src={ThirdProjectScreenshot2}
-          alt="Third Project Screenshot 2"
-          borderRadius="md"
-          boxSize="300px"
-          objectFit="cover"
-          cursor="pointer"
-          transition="transform 0.3s ease-in-out"
-          _hover={{ transform: "scale(1.05)" }}
-          onClick={() => openModal(ThirdProjectScreenshot2)}
-        />
-        <Image
-          src={ThirdProjectScreenshot3}
-          alt="Third Project Screenshot 3"
-          borderRadius="md"
-          boxSize="300px"
-          objectFit="cover"
-          cursor="pointer"
-          transition="transform 0.3s ease-in-out"
-          _hover={{ transform: "scale(1.05)" }}
-          onClick={() => openModal(ThirdProjectScreenshot3)}
-        />
+        {[
+          ThirdProjectScreenshot1,
+          ThirdProjectScreenshot2,
+          ThirdProjectScreenshot3,
+        ].map((image, index) => (
+          <Image
+            key={index}
+            src={image}
+            alt={`Third Project Screenshot ${index + 1}`}
+            borderRadius="md"
+            boxSize="300px"
+            objectFit="cover"
+            cursor="pointer"
+            transition="transform 0.3s ease-in-out"
+            _hover={{ transform: "scale(1.05)" }}
+            onClick={() => openModal(image)}
+          />
+        ))}
       </SimpleGrid>
 
       {/* Modal to display selected image */}

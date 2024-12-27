@@ -10,8 +10,10 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 function ContactMe() {
+  const { t } = useTranslation(); // Ensure `t` is initialized correctly
   const bg = useColorModeValue("gray.100", "gray.900");
   const inputBg = useColorModeValue("white", "gray.800");
   const textColor = useColorModeValue("black", "white");
@@ -29,8 +31,8 @@ function ContactMe() {
   const handleSubmit = () => {
     // Show toast when the submit button is clicked
     toast({
-      title: "Message Sent",
-      description: "Your message has been successfully sent.",
+      title: t("contactMe.messageSent"),
+      description: t("contactMe.messageSuccess"),
       status: "success",
       duration: 3000,
       isClosable: true,
@@ -60,13 +62,13 @@ function ContactMe() {
           size="lg"
           color={useColorModeValue("teal.500", "teal.300")}
         >
-          Get in Touch
+          {t("contactMe.getInTouch")} {/* Ensure this key exists */}
         </Heading>
 
         <Flex w="100%" gap={4}>
           <Input
             ref={firstNameRef}
-            placeholder="First Name"
+            placeholder={t("contactMe.firstName")}
             bg={inputBg}
             color={textColor}
             border="1px solid"
@@ -76,7 +78,7 @@ function ContactMe() {
           />
           <Input
             ref={lastNameRef}
-            placeholder="Last Name"
+            placeholder={t("contactMe.lastName")}
             bg={inputBg}
             color={textColor}
             border="1px solid"
@@ -88,7 +90,7 @@ function ContactMe() {
 
         <Input
           ref={phoneRef}
-          placeholder="Phone Number"
+          placeholder={t("contactMe.phone")}
           type="tel"
           bg={inputBg}
           color={textColor}
@@ -99,7 +101,7 @@ function ContactMe() {
         />
         <Input
           ref={emailRef}
-          placeholder="Your Email"
+          placeholder={t("contactMe.email")}
           type="email"
           bg={inputBg}
           color={textColor}
@@ -110,7 +112,7 @@ function ContactMe() {
         />
         <Textarea
           ref={messageRef}
-          placeholder="Your Message"
+          placeholder={t("contactMe.message")}
           bg={inputBg}
           color={textColor}
           border="1px solid"
@@ -125,7 +127,7 @@ function ContactMe() {
           alignSelf="center"
           onClick={handleSubmit}
         >
-          Submit
+          {t("contactMe.submit")} {/* Ensure this key exists */}
         </Button>
       </VStack>
     </Box>

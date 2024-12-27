@@ -1,8 +1,76 @@
 {
+  "homepage": {
+    "welcome": "Welcome to My Portfolio",
+    "intro": "Hi, I'm {{name}}, a front-end developer. Explore my projects and learn more about me!",
+    "viewProjects": "View My Projects",
+    "viewCV": "View My CV",
+    "techStack": "My Tech Stack",
+    "tagline": "Transforming ideas into reality, one line of code at a time.",
+    "name": "Mariam Tskhadadze",
+    "rights": "All Rights Reserved.",
+    "tech": {
+      "html": "HTML",
+      "css": "CSS",
+      "javascript": "JavaScript",
+      "react": "React",
+      "chakra ui": "Chakra UI",
+      "git": "Git"
+    }
+  },
   "myPortfolio": "My Portfolio",
   "home": "Home",
   "about": "About Me",
   "projects": "Projects",
   "blogs": "Blogs",
-  "contact": "Contact"
+  "contact": "Contact",
+  "welcome": "Welcome",
+  "aboutMe": {
+    "title": "About Me",
+    "description": "Hello, I am Mariam Tskhadadze, a junior front-end developer...",
+    "email": "mtskhadadze0@gmail.com",
+    "phone": "+995 591 006 444",
+    "location": "Tbilisi, Georgia (Available for freelance or full-time opportunities)",
+    "github": "https://github.com/Mariamtskhadadze",
+    "projects": {
+      "construction": {
+        "title": "Construction Page",
+        "description": "This is a brief description of the project, where I used HTML and CSS to build it. It's a construction-themed project with various features showcasing layout and design"
+      },
+      "games": {
+        "title": "Games Page",
+        "description": "This is my second project, using React with TypeScript and Chakra UI. It’s hosted on Vercel, and showcases interactive elements and smooth animations",
+        "liveDemo": "Live Demo",
+        "viewCode": "View Code"
+      },
+      "store": {
+        "title": "Store Page",
+        "description": "This is the third project description on the store, HTML, CSS and JavaScript are used."
+      }
+    }
+  },
+  "contactMe": {
+    "getInTouch": "Get in Touch",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone Number",
+    "email": "Your Email",
+    "message": "Your Message",
+    "submit": "Submit",
+    "messageSent": "Message Sent",
+    "messageSuccess": "Your message has been successfully sent."
+  },
+  "blogsPage": {
+    "title": "Blogs",
+    "readMore": "Read More",
+    "showLess": "Show Less"
+  },
+  "blog": {
+    "responsiveWebDesignTitle": "How to Build a Responsive Website",
+    "responsiveWebDesignDescription": "Learn the fundamentals of responsive web design and how to create layouts that adapt beautifully to different screen sizes. Responsive web design ensures that your content is accessible and visually appealing, whether viewed on a mobile device, tablet, or desktop.",
+    "javascriptES6FeaturesTitle": "JavaScript ES6 Features You Should Know",
+    "javascriptES6FeaturesDescription": "Master the most essential features of JavaScript ES6. From arrow functions to template literals and destructuring, ES6 introduces powerful tools to make your code more concise, efficient, and readable.",
+    "cssGridVsFlexboxTitle": "CSS Grid vs Flexbox: When to Use Which?",
+    "cssGridVsFlexboxDescription": "Understand the differences between CSS Grid and Flexbox. Learn when to use each layout system to create responsive and flexible designs, and determine which one best suits the specific needs of your project.",
+    "date": "Date"
+  }
 }
