@@ -1,11 +1,11 @@
 {
   "homepage": {
-    "welcome": "Welcome to My Portfolio",
-    "intro": "Hi, I'm {{name}}, a front-end developer. Explore my projects and learn more about me!",
-    "viewProjects": "View My Projects",
+    "welcome": "Hi, I am Mariam Tskhadadze",
+    "intro": "I'm a front-end developer passionate about creating clean, responsive, and interactive web applications. Explore my work and see how I turn ideas into digital solutions.",
+    "viewProjects": "Explore My Projects",
     "viewCV": "View My CV",
-    "techStack": "My Tech Stack",
-    "tagline": "Transforming ideas into reality, one line of code at a time.",
+    "techStack": "Technologies I Use",
+    "tagline": "Transforming ideas into innovative digital experiences.",
     "name": "Mariam Tskhadadze",
     "rights": "All Rights Reserved.",
     "tech": {
@@ -26,7 +26,7 @@
   "welcome": "Welcome",
   "aboutMe": {
     "title": "About Me",
-    "description": "Hello, I am Mariam Tskhadadze, a junior front-end developer...",
+    "description": "Hello, I am Mariam Tskhadadze, a junior front-end developer. Although I have not yet gained professional work experience, I constantly work on personal projects, complete online courses, and have gained valuable knowledge from college. I first discovered web development three years ago and was immediately intrigued. Since then, I've dedicated myself to learning and growing in this field. My passion lies in technology, and my ultimate goal is to become a full-stack developer. I am always open to new opportunities and excited about building great user experiences",
     "email": "mtskhadadze0@gmail.com",
     "phone": "+995 591 006 444",
     "location": "Tbilisi, Georgia (Available for freelance or full-time opportunities)",

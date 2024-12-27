@@ -53,11 +53,13 @@ const HomePage = () => {
           >
             {t("homepage.viewProjects")}
           </Button>
+          {/* View CV Button */}
           <Button
             size="lg"
             colorScheme={secondaryButtonColorScheme}
             as="a"
-            href="/cv"
+            href="/cv/Mariam_Tskhadadze_CV.pdf"
+            target="_blank" // Open in a new tab
           >
             {t("homepage.viewCV")}
           </Button>
