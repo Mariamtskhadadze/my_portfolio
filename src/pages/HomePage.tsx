@@ -58,7 +58,7 @@ const HomePage = () => {
             size="lg"
             colorScheme={secondaryButtonColorScheme}
             as="a"
-            href="/cv/Mariam_Tskhadadze_CV.pdf"
+            href="/public/cv/მარიამ_ცხადაძე_CV.pdf"
             target="_blank" // Open in a new tab
           >
             {t("homepage.viewCV")}
