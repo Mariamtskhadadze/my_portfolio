@@ -85,8 +85,8 @@ function ContactMe() {
       !isMessageValid
     ) {
       toast({
-        title: "Warning",
-        description: "Please fill in all fields",
+        title: t("contactMe.warningTitle"),
+        description: t("contactMe.warning"),
         status: "warning",
         duration: 3000,
         isClosable: true,

@@ -23,21 +23,21 @@ const blogs: Blog[] = [
     id: 1,
     titleKey: "blog.responsiveWebDesignTitle", // Use translation key for title
     descriptionKey: "blog.responsiveWebDesignDescription", // Add translation key for description
-    date: "December 20, 2024",
+    date: "20/12/2024",
     link: "/blog/responsive-web-design",
   },
   {
     id: 2,
     titleKey: "blog.javascriptES6FeaturesTitle", // Use translation key for title
     descriptionKey: "blog.javascriptES6FeaturesDescription", // Add translation key for description
-    date: "December 15, 2024",
+    date: "15/12/2024",
     link: "/blog/javascript-es6-features",
   },
   {
     id: 3,
     titleKey: "blog.cssGridVsFlexboxTitle", // Use translation key for title
     descriptionKey: "blog.cssGridVsFlexboxDescription", // Add translation key for description
-    date: "December 10, 2024",
+    date: "10/12/2024",
     link: "/blog/css-grid-vs-flexbox",
   },
 ];

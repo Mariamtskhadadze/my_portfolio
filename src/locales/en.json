@@ -57,7 +57,9 @@
     "message": "Your Message",
     "submit": "Submit",
     "messageSent": "Message Sent",
-    "messageSuccess": "Your message has been successfully sent."
+    "messageSuccess": "Your message has been successfully sent.",
+    "warningTitle": "Warning",
+    "warning": "Please fill in all fields"
   },
   "blogsPage": {
     "title": "Blogs",

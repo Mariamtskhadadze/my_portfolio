@@ -8,7 +8,7 @@ import {
   useColorMode,
   Link,
   Circle,
-  VStack, // Added for mobile layout
+  VStack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, SunIcon, MoonIcon } from "@chakra-ui/icons";
 import { useTranslation } from "react-i18next";
@@ -34,44 +34,46 @@ const NavigationBar = () => {
     <Box bg={bgColor} px={4}>
       <Flex
         h={16}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        position="relative"
+        alignItems="center" // Ensures all elements are vertically centered
+        justifyContent="space-between" // Spreads out elements across navbar
       >
-        {/* Mobile Menu Icon aligned to the left */}
-        <Box
-          position="absolute"
-          left={4}
-          top="50%"
-          transform="translateY(-50%)" // Centers vertically along the navbar
-          zIndex={10}
-        >
-          <IconButton
-            size={"lg"} // Increased icon size for better visibility
-            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={"Toggle Navigation"}
-            display={{ md: "none" }}
-            onClick={isOpen ? onClose : onOpen}
-          />
-        </Box>
+        {/* Hamburger Icon */}
+        <IconButton
+          size={"lg"}
+          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+          aria-label="Toggle Navigation"
+          display={{ base: "block", md: "none" }} // Only show on small screens
+          onClick={isOpen ? onClose : onOpen}
+        />
 
-        {/* "My Portfolio" Text aligned to the right or center */}
+        {/* "My Portfolio" Text and Navigation Links */}
         <HStack
-          spacing={4}
-          alignItems={"center"}
-          ml={12} // Adds margin left for space between icon and text
-          justifyContent="center" // Centers text content if required
-          flex="1" // Makes the text area take remaining space
+          spacing={6} // Increased spacing between "My Portfolio" and links
+          alignItems="center"
+          flex="1" // Ensures this section takes up available space
         >
-          {/* Text: My Portfolio with the desired color */}
+          {/* Text: My Portfolio */}
           <Text fontSize="xl" fontWeight="bold" color={textColor}>
             {t("myPortfolio")}
           </Text>
+
+          <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
+            {Links.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                px={2}
+                py={1}
+                color={textColor}
+              >
+                {t(link.name)}
+              </Link>
+            ))}
+          </HStack>
         </HStack>
 
-        {/* Language Toggle and Dark Mode */}
-        <HStack spacing={2} alignItems={"center"}>
-          {/* Language Toggle */}
+        {/* Language and Dark Mode Toggle */}
+        <HStack spacing={2} alignItems="center">
           <Circle
             size="28px"
             bg={i18n.language === "en" ? "black" : "transparent"}
@@ -93,7 +95,6 @@ const NavigationBar = () => {
             GE
           </Circle>
 
-          {/* Dark Mode Toggle */}
           <IconButton
             aria-label="Toggle Dark Mode"
             icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
@@ -108,13 +109,9 @@ const NavigationBar = () => {
       {isOpen && (
         <Box
           pb={4}
-          display={{ md: "none" }}
-          position="absolute" // Position the menu absolutely to the left
-          left={0}
-          top={16} // Position the dropdown below the navbar
+          display={{ md: "none" }} // Only show on small screens
           bg={bgColor}
-          w="200px" // Adjust width of the menu
-          zIndex={9} // Ensure it appears below the hamburger icon
+          w="100%" // Full width for mobile
           boxShadow="md"
         >
           <VStack as={"nav"} spacing={4} align="flex-start">
