@@ -4,7 +4,7 @@ import {
   Text,
   Button,
   HStack,
-  VStack,
+  Flex,
   useColorMode,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
@@ -67,24 +67,34 @@ const HomePage = () => {
       </Box>
 
       {/* Skills Section */}
-      <VStack mt={16} spacing={4}>
+      <Box mt={16} w="full">
         <Text fontSize="xl" color={headingColor} fontWeight="bold">
           {t("homepage.techStack")}
         </Text>
-        <HStack spacing={6}>
+        {/* Use Flex for better control */}
+        <Flex
+          wrap="wrap"
+          justify="center"
+          align="center"
+          padding={4} // Control spacing here
+          gap={4} // More control over spacing between items
+        >
           {["HTML", "CSS", "JavaScript", "React", "Chakra UI", "Git"].map(
             (tech) => (
               <Text
                 key={tech}
                 fontSize="lg"
                 color={colorMode === "dark" ? "gray.300" : "gray.700"}
+                textAlign="center"
+                mb={4} // Adjust margin bottom for tighter spacing
+                px={2} // Optional: add horizontal padding if needed
               >
                 {t(`homepage.tech.${tech.toLowerCase()}`)}
               </Text>
             )
           )}
-        </HStack>
-      </VStack>
+        </Flex>
+      </Box>
 
       {/* New Tagline */}
       <Box mt={16}>
